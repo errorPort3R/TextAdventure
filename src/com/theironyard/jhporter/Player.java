@@ -1,5 +1,6 @@
 package com.theironyard.jhporter;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,6 +12,9 @@ public class Player
     String name;
     String weapon;
     String location;
+    String answer;
+    ArrayList<String> items = new ArrayList<String>();
+
 
     public void chooseName()
     {
@@ -54,4 +58,17 @@ public class Player
             throw new Exception("You are lost. The Black Knight finds you and kills you!");
         }
     }
+
+    public void findItem(String item)
+    {
+        System.out.printf("\nYou found %s! Pick it up? [Y/N]", item);
+        answer = Main.input.nextLine();
+        if (answer.equalsIgnoreCase("y"))
+        {
+            items.add(item);
+            System.out.println("You now have " + items.size() + " item(s).");
+        }
+    }
+
+
 }

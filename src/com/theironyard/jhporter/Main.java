@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         //declare variables
 
+
         Player player = new Player();
 
         //play
@@ -16,5 +17,24 @@ public class Main {
         player.chooseName();
         player.chooseWeapon();
         player.chooseLocation();
+        player.findItem("armor");
+        player.findItem("potion");
+
+
+
+        /*System.out.println("Type a number.");
+        String num = input.nextLine();
+        int actualNum = Integer.valueOf(num);
+
+        if (actualNum<0)
+        {
+            System.out.println("That's a negative number.");
+        }
+        else
+        {
+            System.out.println("That's a positive number.");
+        }
+        */
+
     }
 }
