@@ -1,7 +1,6 @@
 package com.theironyard.jhporter;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by jeffryporter on 5/18/16.
@@ -19,14 +18,14 @@ public class Player
     public void chooseName()
     {
         System.out.println("What is your name? ");
-        name = Main.input.nextLine();
+        name = Main.nextLine();
         System.out.println("Welcome, " + name);
     }
 
     public void chooseWeapon() throws Exception
     {
         System.out.println("Choose you're weapon [sword/mace]: ");
-        weapon = Main.input.nextLine();
+        weapon = Main.nextLine();
         if (weapon.equalsIgnoreCase("sword"))
         {
             System.out.println("Sword is a fine choice!");
@@ -44,7 +43,7 @@ public class Player
     public void chooseLocation() throws Exception
     {
         System.out.println("Choose your location [forest/tunnel]: ");
-        location = Main.input.nextLine();
+        location = Main.nextLine();
         if (location.equalsIgnoreCase("forest"))
         {
             System.out.println("Entering forest...");
@@ -62,7 +61,7 @@ public class Player
     public void findItem(String item)
     {
         System.out.printf("\nYou found %s! Pick it up? [Y/N]", item);
-        answer = Main.input.nextLine();
+        answer = Main.nextLine();
         if (answer.equalsIgnoreCase("y"))
         {
             items.add(item);

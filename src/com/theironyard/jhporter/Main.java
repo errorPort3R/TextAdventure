@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Main {
 
     static Scanner input = new Scanner(System.in);
+    static Player player = new Player();
 
     public static void main(String[] args) throws Exception {
         //declare variables
 
 
-        Player player = new Player();
 
         //play
         System.out.println("Welcome traveller!");
@@ -19,8 +19,6 @@ public class Main {
         player.chooseLocation();
         player.findItem("armor");
         player.findItem("potion");
-
-
 
         /*System.out.println("Type a number.");
         String num = input.nextLine();
@@ -36,5 +34,27 @@ public class Main {
         }
         */
 
+    }
+
+    public static String nextLine()
+    {
+        String line = input.nextLine();
+        while(line.startsWith("/"))
+        {
+            switch (line)
+            {
+                case "/inv":
+                    for (String item : player.items)
+                    {
+                        System.out.println(item);
+                    }
+                    break;
+                default:
+                    System.out.println("Command Not Found!");
+                    break;
+            }
+            line = input.nextLine();
+        }
+        return line;
     }
 }
