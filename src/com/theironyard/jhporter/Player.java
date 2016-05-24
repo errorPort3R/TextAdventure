@@ -5,21 +5,25 @@ import java.util.ArrayList;
 /**
  * Created by jeffryporter on 5/18/16.
  */
-public class Player
+public class Player extends Character
 {
     //define variabes
-    String name;
     String weapon;
     String location;
     String answer;
     ArrayList<String> items = new ArrayList<String>();
 
+    public Player()
+    {
+        this.health = 20;
+        this.damage = 20;
+    }
 
     public void chooseName()
     {
         System.out.println("What is your name? ");
         name = Main.nextLine();
-        System.out.println("Welcome, " + name);
+        System.out.printf("Welcome, %s!\n", name);
     }
 
     public void chooseWeapon() throws Exception
@@ -65,9 +69,8 @@ public class Player
         if (answer.equalsIgnoreCase("y"))
         {
             items.add(item);
-            System.out.println("You now have " + items.size() + " item(s).");
+            System.out.printf("You now have %d item(s).\n", items.size());
         }
     }
-
 
 }
