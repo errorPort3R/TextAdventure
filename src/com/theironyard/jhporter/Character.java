@@ -25,7 +25,16 @@ public class Character
         }
         if (enemy.health<=0)
         {
-            System.out.printf("%s has died.", enemy.name);
+            System.out.printf("%s has died.\n", enemy.name);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "name='" + name + '\'' +
+                ", health=" + health +
+                ", damage=" + damage +
+                '}';
     }
 }
