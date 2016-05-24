@@ -2,13 +2,14 @@ package com.theironyard.jhporter;
 
 import java.util.Scanner;
 
+
 public class Main {
 
     static Scanner input = new Scanner(System.in);
     static Player player = new Player();
 
     public static void main(String[] args) throws Exception {
-        //declare variables
+
 
 
 
