@@ -1,5 +1,10 @@
 package com.theironyard.jhporter;
 
+import jodd.json.JsonSerializer;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -27,20 +32,7 @@ public class Main {
         System.out.println(player);
         System.out.println(ogre);
 
-        /*System.out.println("Type a number.");
-        String num = input.nextLine();
-        int actualNum = Integer.valueOf(num);
-
-        if (actualNum<0)
-        {
-            System.out.println("That's a negative number.");
-        }
-        else
-        {
-            System.out.println("That's a positive number.");
-        }
-        */
-
+        saveGame();
     }
 
     public static String nextLine()
@@ -56,6 +48,11 @@ public class Main {
                         System.out.println(item);
                     }
                     break;
+                case "/save":
+                {
+                    saveGame();
+                }
+                break;
                 default:
                     System.out.println("Command Not Found!");
                     break;
@@ -64,4 +61,23 @@ public class Main {
         }
         return line;
     }
+
+
+
+    public static void saveGame()
+    {
+        JsonSerializer serializer = new JsonSerializer();
+        String json = serializer.include("*").serialize(player);
+        File f = new File("game.json");
+        try {
+            FileWriter fw = new FileWriter(f);
+            fw.write(json);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }
